@@ -3,7 +3,12 @@ install all the required packesgs
 - anisble = https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-20-04
 - k8s = https://github.com/Balunideepak/Deployment-script.git
 - jenkins = https://github.com/Balunideepak/Deployment-script.git
-- Set the environment varibale in ~/.bashrc file after updation restart restart "source ~/.bashrc" file 
+- Set the environment varibale in ~/.bashrc file after updation restart restart "source ~/.bashrc" file
+  {
+  $JAVA_HOME= "PATH OF JAVA LOACTION"
+  $M2_HOME= "PATH OF MAVEN"
+  $PATH=$PATH:$JAVA_HOME:$M2_HOME
+  }
 - give Jenking permission to access docker  :  usermod -aG docker jenkins
 - update visudo file to all jenking to bypass password "jenkins ALL=(ALL:ALL) NOPASSWD: ALL" 
 _________________________________________________________________________________________________________________________________
