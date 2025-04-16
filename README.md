@@ -5,9 +5,9 @@ install all the required packesgs
 - jenkins = https://github.com/Balunideepak/Deployment-script.git
 - Set the environment varibale in ~/.bashrc file after updation restart restart "source ~/.bashrc" file
   {
-  $JAVA_HOME= "PATH OF JAVA LOACTION"
-  $M2_HOME= "PATH OF MAVEN"
-  $PATH=$PATH:$JAVA_HOME:$M2_HOME
+  - $JAVA_HOME= "PATH OF JAVA LOACTION"
+  - $M2_HOME= "PATH OF MAVEN"
+  - $PATH=$PATH:$JAVA_HOME:$M2_HOME
   }
 - give Jenking permission to access docker  :  usermod -aG docker jenkins
 - update visudo file to all jenking to bypass password "jenkins ALL=(ALL:ALL) NOPASSWD: ALL" 
