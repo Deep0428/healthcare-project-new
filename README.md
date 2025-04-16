@@ -29,3 +29,8 @@ ________________________________________________________________________________
 ______________________________________________________________________________________
 * copy the <Public IP of the node machine: NodePort no which you got in "kubectl  get svc -o wide" command> and see you websit is working.
 ______________________________________________________________________________________________________________________________ :D :D :D _________________
+for monitoring....
+prometheus link: sudo su wget https://github.com/prometheus/prometheus/releases/download/v3.2.1/prometheus-3.2.1.linux-amd64.tar.gz 
+	
+
+grafana link : wget https://dl.grafana.com/enterprise/release/grafana-enterprise-8.4.4.linux-amd64.tar.gz
