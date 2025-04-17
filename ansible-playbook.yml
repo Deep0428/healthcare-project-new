@@ -1,30 +1,14 @@
 - name: Running Kubernetes Cluster
   hosts: localhost
-  become: yes
+  become: true
   tasks:
     - name: Clone the Healthcare Project Repository
       git:
-        repo: "https://github.com/Balunideepak/healthcare-project.git"
+        repo: "https://github.com/Deep0428/healthcare-project-new.git"
         dest: "/tmp/healthcare-project"
         clone: yes
         update: yes
         force: yes
-- name: Install kubectl (RedHat)
-  become: yes
-  yum:
-    name: kubectl
-    state: present
-  when: ansible_os_family == 'RedHat'
-
-- name: Install kubectl (Debian)
-  become: yes
-  apt:
-    name: kubectl
-    state: present
-  when: ansible_os_family == 'Debian'
-
-- name: Apply Kubernetes manifests
-  command: kubectl apply -f /tmp/healthcare-project/deployment.yml
 
     - name: Apply Kubernetes manifests
       command: kubectl apply -f /tmp/healthcare-project/deployment.yml
