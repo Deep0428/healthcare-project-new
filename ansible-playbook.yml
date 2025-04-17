@@ -1,19 +1,41 @@
 - name: Running Kubernetes Cluster
   hosts: localhost
-  become: true
+  become: yes
   tasks:
+
+    - name: Install required packages (RedHat)
+      yum:
+        name:
+          - curl
+        state: present
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install kubectl (RedHat)
+      shell: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+        rm -f kubectl
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install required packages (Debian)
+      apt:
+        name: curl
+        state: present
+        update_cache: yes
+      when: ansible_os_family == 'Debian'
+
+    - name: Install kubectl (Debian)
+      shell: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+        rm -f kubectl
+      when: ansible_os_family == 'Debian'
+
     - name: Clone the Healthcare Project Repository
       git:
-        repo: "https://github.com/Deep0428/healthcare-project-new.git"
-        dest: "/tmp/healthcare-project"
-        clone: yes
-        update: yes
+        repo: 'https://github.com/your-org/healthcare-project.git'
+        dest: /tmp/healthcare-project
         force: yes
 
     - name: Apply Kubernetes manifests
       command: kubectl apply -f /tmp/healthcare-project/deployment.yml
-      register: k8s_output
-
-    - name: Display kubectl apply output
-      debug:
-        var: k8s_output.stdout_lines
