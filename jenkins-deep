@@ -48,7 +48,7 @@ pipeline{
      stage('Docker Image Creation') {
       steps {
            echo 'This is for Docker image build'
-           sh 'docker build -t balunideepak/healthcare:latest .'
+           sh 'docker build -t deep0482/healthcare .'
             }
           }
      stage('Login to Dockerhub') {
