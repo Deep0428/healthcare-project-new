@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('checkout the code from github'){
             steps{
-                 git url: 'https://github.com/Balunideepak/healthcare-project.git'
+                 git url: 'https://github.com/Deep0428/healthcare-project-new'
                  echo 'github url checkout'
             }
         }
@@ -47,7 +47,7 @@ pipeline{
              withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'password', usernameVariable: 'username')]) {
           // withCredentials([usernameColonPassword(credentialsId: 'docker-id-user', variable: 'docker-all')]) {
           // withCredentials([string(credentialsId: 'dockercode', variable: 'dockervarcode')]) {
-           sh 'docker login -u balunideepak -p ${password}'
+           sh 'docker login -u deep0428 -p ${password}'
                          }
                    }
                }        
