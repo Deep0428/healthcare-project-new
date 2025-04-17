@@ -48,7 +48,7 @@ pipeline{
      stage('Docker Image Creation') {
       steps {
            echo 'This is for Docker image build'
-           sh 'docker build -t deep0482/healthcare .'
+           sh 'docker build -t deep0482/healthcare:latest .'
             }
           }
      stage('Login to Dockerhub') {
@@ -63,7 +63,7 @@ pipeline{
     
      stage('Push the Docker image') {
       steps {
-        sh 'docker push balunideepak/healthcare:latest'
+        sh 'docker push deep0482/healthcare:latest'
                   }
             }
      stage('Ansible Playbook') {
