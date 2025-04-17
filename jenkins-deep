@@ -28,7 +28,12 @@ pipeline{
                 sh 'mvn package'
             }
         }
-
+        stage('Unit Tests') {
+            steps {
+                  echo 'Running Unit Tests'
+                  sh 'mvn test'
+    }
+}
          stage('Test Results') {
             steps {
                echo 'This is for generating Test Results'
