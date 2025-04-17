@@ -9,7 +9,19 @@
         clone: yes
         update: yes
         force: yes
+- name: Install kubectl
+  become: yes
+  apt:
+    name: kubectl
+    state: present
+  when: ansible_os_family == 'Debian'
 
+- name: Install kubectl (RHEL)
+  become: yes
+  yum:
+    name: kubectl
+    state: present
+  when: ansible_os_family == 'RedHat'
     - name: Apply Kubernetes manifests
       command: kubectl apply -f /tmp/healthcare-project/deployment.yml
       register: k8s_output
