@@ -39,3 +39,6 @@
 
     - name: Apply Kubernetes manifests
       command: kubectl apply -f /tmp/healthcare-project/deployment.yml
+      environment:
+  PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+
