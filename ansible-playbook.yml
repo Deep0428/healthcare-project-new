@@ -33,12 +33,12 @@
 
     - name: Clone the Healthcare Project Repository
       git:
-        repo: 'https://github.com/your-org/healthcare-project.git'
+        repo: 'https://github.com/Deep0428/healthcare-project-new.git'
         dest: /tmp/healthcare-project
         force: yes
 
     - name: Apply Kubernetes manifests
       command: kubectl apply -f /tmp/healthcare-project/deployment.yml
       environment:
-  PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+      PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
 
